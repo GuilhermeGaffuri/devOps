@@ -2,14 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Clonar Repositório') {
             steps {
-                echo 'Building..'
+                // Clonar o repositório Git
+                git url: 'https://github.com/g4l4ctusInt/devOpsaula03'
             }
         }
-        stage('Deploy') {
+
+        stage('Executar o Código') {
             steps {
-                echo 'Deploying....'
+                sh 'python3 main.py'
             }
         }
     }
